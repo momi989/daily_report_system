@@ -31,7 +31,7 @@
                                     <c:out value="${report.content}" />
 
 
-                                <img src="/daily_report_system/upload/<c:out value='${report.filename}'/>" />
+                                <img src="/daily_report_system/upload/<c:out value='${report.filename}'/>"/>
                                 <!-- 画像破損を消す -->
 
 

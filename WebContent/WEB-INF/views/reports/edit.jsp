@@ -14,6 +14,22 @@
             </c:otherwise>
         </c:choose>
 
+<form action="/daily_report_system/UploadServlet" method="post"
+                    enctype="multipart/form-data">
+                    <input type="file" name="pict"><br>
+                    <button type="submit">送信</button>
+                </form>
+
+                <br>
+                <br>
+
+                <form action="/daily_report_system/UploadDestroyServlet"
+                    method="post" enctype="multipart/form-data">
+
+                    <button type="submit">削除</button>
+                </form>
+
+
         <p><a href="<c:url value='/reports/index' />">一覧に戻る</a></p>
     </c:param>
 </c:import>

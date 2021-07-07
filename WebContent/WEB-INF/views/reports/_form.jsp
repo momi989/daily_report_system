@@ -45,28 +45,3 @@
 <input type="hidden" name="_token" value="${_token}" />
 <button type="submit">投稿</button>
 <br />
-
-
-<form action="/daily_report_system/UploadServlet" method="post"
-                    enctype="multipart/form-data">
-                    <input type="file" name="pict"><br>
-                    <button type="submit">送信</button>
-                </form>
-
-                <br>
-                <br>
-
-                <form action="/daily_report_system/UploadDestroyServlet"
-                    method="post" enctype="multipart/form-data">
-
-                    <button type="submit">削除</button>
-                </form>
-
-
-<!--
-       ファイルアップロードボタン
-<form action="/daily_report_system/UploadServlet" method="post" enctype="multipart/form-data">
-<input type="file" name="pict"><br>
-<button type="submit">送信</button>
-</form>
--->
