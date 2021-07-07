@@ -1,6 +1,8 @@
 package controllers.reports;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
@@ -8,10 +10,12 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import models.Employee;
 import models.Report;
@@ -22,6 +26,7 @@ import utils.DBUtil;
  * Servlet implementation class ReportsCreateServlet
  */
 @WebServlet("/reports/create")
+@MultipartConfig
 public class ReportsCreateServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -32,6 +37,12 @@ public class ReportsCreateServlet extends HttpServlet {
         super();
     }
 
+/*
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/views/reports/_form.jsp");
+        rd.forward(request, response);
+    }
+*/
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
@@ -53,6 +64,16 @@ public class ReportsCreateServlet extends HttpServlet {
 
             r.setTitle(request.getParameter("title"));
             r.setContent(request.getParameter("content"));
+
+
+            //いいね数に初期値0を設定する処理
+            r.setLikes(0);
+
+            //filenameの初期値
+            r.setFilename("NoImage");
+                    //r.setFilename(request.getParameter("filename"));
+
+
 
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             r.setCreated_at(currentTime);
