@@ -63,7 +63,7 @@
                 </form>
 
 
-
+<!--
        ファイルアップロードボタン
 <form action="/daily_report_system/UploadServlet" method="post" enctype="multipart/form-data">
 <input type="file" name="pict"><br>
